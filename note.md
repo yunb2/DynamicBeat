@@ -37,3 +37,29 @@
   ```
 
   
+
+#### JLayer
+
+- 게임에서 음악을 실행하기 위해서는 자바 라이브러리가 필요함
+- <a href="javazoom.net">javazoom.net</a>에서 제공하는 JLayer를 사용
+
+- JLayer 다운로드 후 프로젝트의 Java Build Path의 Libraries에 `jl1.0.1.jar` 추가
+
+- JLayer 라이브러리를 통해 Player 클래스를 사용가능
+
+  ```java
+  import javazoom.jl.player.Player;
+  
+  File file = new File("../music/intro_music.mp3");
+  FileInputStream fis = new FileInputStream(file);
+  BufferedInputStream bis = new BufferedInputStream(fis);
+  
+  Player player = new Player(bis);
+  
+  player.play();
+  player.close();
+  
+  int time = player.getPosition(); // 현재 음악이 재생되는 위치
+  ```
+
+  
