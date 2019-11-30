@@ -6,7 +6,13 @@
 
 #### ✌ 더블버퍼링
 
-- 현재 프로그램의 전체 화면의 크기에 맞는 이미지를 매순간마다 생성하여 원하는 컴포넌트만 출력하는 방식
+> [Double Buffering - 더블 버퍼링 기법](https://movefast.tistory.com/6)
+
+- 이미지가 전환될 때 깜빡이는 현상없이 부드럽게 전환하기 위해 사용되는 기법
+
+  <img src="./img/double_buffering.JPG" width="95%"/>
+  
+- 소스코드
 
   ```java
   public class DynamicBeat extends JFrame {
@@ -14,24 +20,31 @@
   	private Image screenImage;
   	private Graphics screenGraphic;
   	
-  	private Image introBackground;
+  	private Image background;
   	
   	public DynamicBeat() {
-  		...
+  		... 
+          // 프로그램이 시작될 때 버튼, 메뉴바 등 컴포넌트를 생성 후 add
+          add(component); 
   	}
   	
   	public void paint(Graphics g) {
-  		screenImage = createImage(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
+  		// 버퍼링용 이미지 생성
+          screenImage = createImage(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT); 
   		screenGraphic = screenImage.getGraphics();
   		screenDraw(screenGraphic);
-  		g.drawImage(screenImage, 0, 0, null);
+          // 실제화면으로 screenImage에 그려진 이미지를 옮김.
+  		g.drawImage(screenImage, 0, 0, null); 
   	}
   	
   	public void screenDraw(Graphics g) {
-  		g.drawImage(introBackground, 0, 0, null);
+          // 배경 이미지를 그림
+  		g.drawImage(background, 0, 0, null); 
+          // 버튼, 메뉴바 등 컴포넌트를 그림
+          paintComponents(g); 
   		this.repaint();
   	}
-  	
+  
   }
   
   ```
