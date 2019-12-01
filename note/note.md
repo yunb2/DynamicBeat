@@ -123,6 +123,15 @@
     });
     ```
 
+- setFocusable(true) : 해당 컴포넌트가 이벤트를 받을 수 있도록 설정
+
+  ```java
+  public void gameStart(...) {
+      ...
+      setFocusable(true); // 게임이 시작되면 해당 게임이 이벤트를 받을 수 있도록 포커싱
+  }
+  ```
+
 
 
 #### 🎨 Graphics
@@ -149,4 +158,38 @@
   g.drawString("String", 1190, 702);
   ```
 
-  
+
+
+#### 🎹 Key Listener
+
+```java
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class KeyListener extends KeyAdapter {
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		
+		if(DynamicBeat.game == null) return;
+		
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_S:
+			...
+			break;
+		case KeyEvent.VK_SPACE:
+            ...
+			break;
+		...
+		}
+	}
+	
+	@Override
+	public void keyReleased(KeyEvent e) {
+		...
+	}
+	
+}
+
+```
+
