@@ -12,7 +12,7 @@
 
   <img src="./img/double_buffering.JPG" width="95%"/>
   
-- 소스코드
+- 소스코드    
 
   ```java
   public class DynamicBeat extends JFrame {
