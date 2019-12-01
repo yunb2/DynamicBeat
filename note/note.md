@@ -78,7 +78,7 @@
 
 
 
-#### 🎨 JFrame
+#### 🎬 Frame
 
 - setUndecorated(true) : 윈도우 메뉴바 안보이게
 
@@ -119,6 +119,34 @@
         public void mouseDragged(MouseEvent e) {
             ... // 메뉴바를 드래그했을 때
         }
+    
     });
     ```
 
+
+
+#### 🎨 Graphics
+
+- graphics.drawImage(image, x, y, observer)
+
+  - 이벤트가 발생하지 않는 정적인 이미지를 그릴 때 주로 사용.
+  - 배경화면 등
+
+- graphics2d.setRenderingHint(hintKey, hintValue)
+
+  - 글자 윤곽선 보정
+
+- 글쓰기
+
+  - graphics.setColor(color)
+  - graphics.setFont(font)
+  - graphics.drawString(string, x, y);
+
+  ```java
+  Graphics g;
+  g.setColor(Color.white);
+  g.setFont(new Font("Arial", Font.BOLD, 30));
+  g.drawString("String", 1190, 702);
+  ```
+
+  
